@@ -1,5 +1,5 @@
 /**
- * @file 压缩 json 文件
+ * @file 压缩 json 文件/目录
  * */
 
 const fs = require("fs");
