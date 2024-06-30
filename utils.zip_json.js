@@ -5,7 +5,11 @@
 const fs = require("fs");
 const path = require("path");
 
-function zipDir(parentPath) {
+/**
+ * @param {String} parentPath - 目录
+ * @param {Boolean} recursion - 是否递归
+ * */
+function zipDir(parentPath, recursion) {
   const dir = fs.readdirSync(parentPath);
 
   dir.forEach((item) => {
@@ -13,8 +17,8 @@ function zipDir(parentPath) {
 
     let childState = fs.statSync(childPath);
 
-    if (childState.isDirectory()) {
-      zip(childPath);
+    if (childState.isDirectory() && recursion) {
+      zip(childPath, recursion);
     } else if (item.includes(".json")) {
       try {
         let beforeSize = (childState.size / 1024).toFixed(2);
@@ -37,6 +41,9 @@ function zipDir(parentPath) {
   });
 }
 
+/**
+ * @param {String} filePath - 文件路径
+ * */
 function zipFile(filePath) {
   let beforeState = fs.statSync(filePath);
 

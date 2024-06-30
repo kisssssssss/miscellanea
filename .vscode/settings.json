@@ -1,7 +1,5 @@
 {
-  "explorer.fileNesting.enabled": true,
-  "explorer.fileNesting.expand": false,
-  "explorer.fileNesting.patterns": {
-    "*.js": "$(capture).*.js",
-  }
+  "cSpell.words": [
+    "Bogo"
+  ]
 }
